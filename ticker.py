@@ -10,6 +10,8 @@ GDN_KEY = os.environ['GDN_KEY']
 AWS_KEY = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET = os.environ['AWS_SECRET_ACCESS_KEY']
 length = 60
+test = ""
+
 if 'AWS_SESSION_TOKEN' in os.environ:
 	AWS_SESSION = os.environ['AWS_SESSION_TOKEN']
 
@@ -63,12 +65,12 @@ def getLatest(article_key):
 	object = s3.Object(bucket, key)
 	object.put(Body=newJsonOutput, CacheControl="max-age=60", ACL='public-read', ContentType="application/json")
 	print("Ticker updated")
-	print("Data url", f"https://interactive.guim.co.uk/{key}")
+	print("Data url", f"https://interactive.guim.co.uk/{key}{test}")
 
 # test = "/australia-news/live/2023/oct/14/voice-referendum-2023-live-updates-australia-latest-news-yes-no-vote-winner-results-australian-indigenous-voice-to-parliament-polls"
 # getLatest(test)
 
-liveblogID = "/australia-news/live/2024/may/14/budget-2024-live-updates-australia-federal-treasurer-jim-chalmers-speech-australian-government-anthony-albanese-labor-cost-of-living-latest-news"
+liveblogID = "/australia-news/live/2024/may/15/australia-politics-live-budget-2024-reaction-labors-cost-of-living-chalmers-dutton-prepares-for-reply"
 
 def updateTicker():
 	getLatest(liveblogID)
