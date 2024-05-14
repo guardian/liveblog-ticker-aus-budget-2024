@@ -9,7 +9,7 @@ from datetime import datetime
 GDN_KEY = os.environ['GDN_KEY']
 AWS_KEY = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET = os.environ['AWS_SECRET_ACCESS_KEY']
-
+length = 60
 if 'AWS_SESSION_TOKEN' in os.environ:
 	AWS_SESSION = os.environ['AWS_SESSION_TOKEN']
 
@@ -27,8 +27,8 @@ def getLatest(article_key):
 		blocks = results['response']['content']['blocks']['requestedBodyBlocks']["body:latest:10"]
 		for block in blocks:
 			labelText = block['bodyTextSummary']
-			if len(labelText) > 50:
-				labelText = block['bodyTextSummary'][:50] + "..."
+			if len(labelText) > length:
+				labelText = block['bodyTextSummary'][:length] + "..."
 			
 			block_id = block['id']
 			url = f"https://www.theguardian.com/{article_key}?page=with:block-{block_id}#block-{block_id}"

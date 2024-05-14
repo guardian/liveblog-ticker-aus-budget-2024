@@ -1,0 +1,8 @@
+- Add the liveblog key as liveblogID for the liveblog you want to parse, eg everything after https://www.theguardian.com in a URL, eg "/australia-news/live/2024/may/14/budget-2024-live-updates-australia-federal-treasurer-jim-chalmers-speech-australian-government-anthony-albanese-labor-cost-of-living-latest-news"
+- Commit and pull on the EC2 server
+- Start a new screen session with the `screen` command on the EC2 server
+- If using a python virtualenv, activate the env with `source venv/bin/activate`
+- Run the script with `python ticker.py`
+- Detach from screen with `Ctrl + a` then `d`
+- If you want to reattach to the screen session, use `screen -r`
+- See https://linuxize.com/post/how-to-use-linux-screen/ for other screen commands 
