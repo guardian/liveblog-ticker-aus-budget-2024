@@ -61,7 +61,7 @@ def getLatest(article_key):
 	s3 = session.resource('s3')	
 
 
-	key = "2024/05/aus-federal-budget/ticker.json"
+	key = "2025/05/aus-federal-budget/ticker.json"
 	object = s3.Object(bucket, key)
 	object.put(Body=newJsonOutput, CacheControl="max-age=60", ACL='public-read', ContentType="application/json")
 	print("Ticker updated")
@@ -70,7 +70,7 @@ def getLatest(article_key):
 # test = "/australia-news/live/2023/oct/14/voice-referendum-2023-live-updates-australia-latest-news-yes-no-vote-winner-results-australian-indigenous-voice-to-parliament-polls"
 # getLatest(test)
 
-liveblogID = "/australia-news/live/2024/may/15/australia-politics-live-budget-2024-reaction-labors-cost-of-living-chalmers-dutton-prepares-for-reply"
+liveblogID = "/australia-news/live/2025/mar/25/australia-politics-live-budget-cost-of-living-relief-debt-jim-chalmers-election-peter-dutton-anthony-albanese-ntwnfb"
 
 def updateTicker():
 	getLatest(liveblogID)
